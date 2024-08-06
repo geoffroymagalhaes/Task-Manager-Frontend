@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-import menuIcon from "../assets/icons/menu.svg";
-import addIcon from "../assets/icons/add.svg";
-import deleteIcon from "../assets/icons/delete.svg";
-import Modal from "../components/Modal"; // Import the Modal component
+import menuIcon from "../../assets/icons/menu.svg";
+import addIcon from "../../assets/icons/add.svg";
+import deleteIcon from "../../assets/icons/delete.svg";
+import Modal from "../Modal/Modal";
 import "./LeftSidebar.css";
 
 const LeftSidebar = ({ setSelectedTaskListId }) => {
@@ -14,7 +14,7 @@ const LeftSidebar = ({ setSelectedTaskListId }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [taskListToDelete, setTaskListToDelete] = useState(null);
   const [toggleLeftSidebar, setToggleLeftSidebar] = useState(false);
-  const [showCreateModal, setShowCreateModal] = useState(false); // State for create modal
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   const handleToggle = () => {
     setToggleLeftSidebar((prevState) => !prevState);
@@ -52,7 +52,7 @@ const LeftSidebar = ({ setSelectedTaskListId }) => {
       );
       setNewTaskListName("");
       fetchTaskLists();
-      setShowCreateModal(false); // Close the create modal after creating the task list
+      setShowCreateModal(false);
     } catch (error) {
       console.error("Error creating task list:", error);
     }
@@ -127,7 +127,6 @@ const LeftSidebar = ({ setSelectedTaskListId }) => {
         ))}
       </ul>
 
-      {/* Create Task List Modal */}
       <Modal
         show={showCreateModal}
         onClose={() => setShowCreateModal(false)}
@@ -142,7 +141,6 @@ const LeftSidebar = ({ setSelectedTaskListId }) => {
         />
       </Modal>
 
-      {/* Delete Confirmation Modal */}
       <Modal
         show={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}

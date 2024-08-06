@@ -1,5 +1,5 @@
 import React from "react";
-import "./Modal.css"; // Create a CSS file for modal styles
+import "./Modal.css";
 
 const Modal = ({ show, onClose, onConfirm, children }) => {
   if (!show) {

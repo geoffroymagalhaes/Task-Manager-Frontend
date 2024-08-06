@@ -1,0 +1,22 @@
+.bottom-sidebar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vh;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+  overflow: hidden;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.bottom-sidebarSM {
+  height: 50px;
+}
+.bottom-sidebarM {
+  height: 150px;
+}
