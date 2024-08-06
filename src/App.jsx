@@ -17,7 +17,7 @@ function App() {
   const [token, setToken] = useState(Cookies.get("tasks-user-token") || null);
   const handleToken = (token) => {
     if (token) {
-      Cookies.set("tasks-user-token", token, { expires: 15 });
+      Cookies.set("tasks-user-token", token, { expires: 7 });
       setToken(token);
     } else {
       Cookies.remove("tasks-user-token");
@@ -30,7 +30,7 @@ function App() {
         <Route path="/auth" element={<Auth handleToken={handleToken} />} />
         <Route
           path="/home"
-          element={token ? <Home token={token} /> : <Navigate to="/auth" />}
+          element={token ? <Home /> : <Navigate to="/auth" />}
         />
         <Route path="*" element={<Navigate to={token ? "/home" : "/auth"} />} />
       </Routes>

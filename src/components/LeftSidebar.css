@@ -1,0 +1,64 @@
+.left-sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+  overflow: hidden;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.openmenu {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+input {
+  width: 91px;
+  height: 20px;
+}
+.left-sidebarSM {
+  width: 50px;
+}
+.left-sidebarM {
+  width: 150px;
+}
+.menuButton {
+  height: 40px;
+  width: 40px;
+}
+span {
+  background-color: rgb(59, 56, 56);
+}
+
+.left-sidebar li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightgray;
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+}
+
+.modal p {
+  margin-bottom: 20px;
+}
+
+.modal button {
+  margin-right: 10px;
+}
