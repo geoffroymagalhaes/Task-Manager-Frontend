@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
-import addIcon from "../../assets/icons/add.svg";
 
-const MainContent = ({ selectedTaskListId }) => {
-  const [tasks, setTasks] = useState([]);
+import "./MainContent.css";
+const MainContent = ({
+  setSelectedTaskId,
+  selectedTaskListId,
+  taskListUpdated,
+  tasks,
+  setTasks,
+}) => {
+  // const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -12,7 +18,7 @@ const MainContent = ({ selectedTaskListId }) => {
     if (selectedTaskListId) {
       fetchTasks(selectedTaskListId);
     }
-  }, [selectedTaskListId]);
+  }, [selectedTaskListId, taskListUpdated]);
 
   const fetchTasks = async (taskListId) => {
     try {
@@ -106,14 +112,12 @@ const MainContent = ({ selectedTaskListId }) => {
           {tasks.length > 0 ? (
             <ul>
               {tasks.map((task) => (
-                <li key={task.id}>
+                <li key={task.id} onClick={() => setSelectedTaskId(task.id)}>
                   <div>
-                    <div>
-                      <h1>{task.title}</h1>
-                      <h2>{task.description}</h2>
+                    <h1>{task.title}</h1>
+                    {/* <h2>{task.description}</h2>
                       <p>{task.status}</p>
-                      <p>{task.dueDate}</p>
-                    </div>
+                      <p>{task.dueDate}</p> */}
                     <button
                       onClick={() => {
                         toggleTaskStatus(task.id);

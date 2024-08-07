@@ -8,7 +8,7 @@ import deleteIcon from "../../assets/icons/delete.svg";
 import Modal from "../Modal/Modal";
 import "./LeftSidebar.css";
 
-const LeftSidebar = ({ setSelectedTaskListId }) => {
+const LeftSidebar = ({ setSelectedTaskListId, selectedTaskListId }) => {
   const [taskLists, setTaskLists] = useState([]);
   const [newTaskListName, setNewTaskListName] = useState("");
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -115,11 +115,17 @@ const LeftSidebar = ({ setSelectedTaskListId }) => {
       <ul>
         {taskLists.map((taskList) => (
           <li key={taskList.id}>
-            <span onClick={() => setSelectedTaskListId(taskList.id)}>
+            <div
+              onClick={() => setSelectedTaskListId(taskList.id)}
+              className={selectedTaskListId === taskList.id ? "selected" : ""}
+            >
               {taskList.title}
-            </span>
+            </div>
             {toggleLeftSidebar && (
-              <button onClick={() => confirmDeleteTaskList(taskList.id)}>
+              <button
+                className="menuButton"
+                onClick={() => confirmDeleteTaskList(taskList.id)}
+              >
                 <img src={deleteIcon} alt="delete icon" />
               </button>
             )}
@@ -147,8 +153,8 @@ const LeftSidebar = ({ setSelectedTaskListId }) => {
         onConfirm={deleteTaskList}
       >
         <p>
-          Are you sure you want to delete this task list? All associated tasks
-          will be deleted.
+          Are you sure you want to delete this task list? <br />
+          All associated tasks will be deleted.
         </p>
       </Modal>
     </div>

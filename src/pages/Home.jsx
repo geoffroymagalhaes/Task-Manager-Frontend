@@ -5,14 +5,33 @@ import RightSidebar from "../components/RigthSidebar/RightSidebar";
 import MainContent from "../components/MainContent/MainContent";
 import BottomSidebar from "../components/Bottomsidebar/BottomSidebar";
 
-const Home = ({ token }) => {
+const Home = () => {
   const [selectedTaskListId, setSelectedTaskListId] = useState(null);
+  const [selectedTaskId, setSelectedTaskId] = useState(null);
+  const [taskListUpdated, setTaskListUpdated] = useState(false);
+  const [tasks, setTasks] = useState([]);
+  console.log(selectedTaskId);
 
   return (
     <>
-      <LeftSidebar setSelectedTaskListId={setSelectedTaskListId} />
-      <MainContent selectedTaskListId={selectedTaskListId} />
-      <RightSidebar />
+      <LeftSidebar
+        selectedTaskListId={selectedTaskListId}
+        setSelectedTaskListId={setSelectedTaskListId}
+      />
+      <MainContent
+        tasks={tasks}
+        setTasks={setTasks}
+        setSelectedTaskId={setSelectedTaskId}
+        selectedTaskListId={selectedTaskListId}
+        taskListUpdated={taskListUpdated}
+      />
+      <RightSidebar
+        tasks={tasks}
+        setSelectedTaskId={setSelectedTaskId}
+        selectedTaskId={selectedTaskId}
+        selectedTaskListId={selectedTaskListId}
+        setTaskListUpdated={setTaskListUpdated}
+      />
       <BottomSidebar selectedTaskListId={selectedTaskListId} />
     </>
   );

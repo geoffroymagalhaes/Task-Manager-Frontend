@@ -1,0 +1,22 @@
+.displayRightSidebar {
+  width: 150px;
+}
+.hiddenRightSidebar {
+  width: 0px;
+}
+.right-sidebar {
+  z-index: 10;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+  overflow: hidden;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}

@@ -8,6 +8,13 @@ body {
   align-items: center;
 }
 button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
   background-color: black;
   color: white;
+}
+button:hover {
+  padding: -2px, -2px, -2px, -2px;
+  border: solid purple 2px;
 }
