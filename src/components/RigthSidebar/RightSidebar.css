@@ -1,5 +1,14 @@
 .displayRightSidebar {
   width: 150px;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+  overflow: hidden;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 .hiddenRightSidebar {
   width: 0px;
@@ -10,13 +19,4 @@
   right: 0;
   top: 0;
   height: 100%;
-  padding: 10px;
-  border-right: 1px solid #ccc;
-  overflow: hidden;
-  background-color: gray;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-  justify-content: flex-start;
 }

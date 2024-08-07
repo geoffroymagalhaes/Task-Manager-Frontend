@@ -28,7 +28,6 @@
 .bottom-sidebar ul {
   width: 300px;
   margin-top: 10px;
-  border: solid 1px red;
   overflow-y: scroll;
 }
 .bottom-sidebar li div {
