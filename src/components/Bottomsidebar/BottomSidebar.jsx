@@ -4,7 +4,11 @@ import Cookies from "js-cookie";
 
 import "./BottomSidebar.css";
 
-const BottomSidebar = ({ selectedTaskListId }) => {
+const BottomSidebar = ({
+  selectedTaskListId,
+  setTaskStatusUpdated,
+  taskStatusUpdated,
+}) => {
   const [tasks, setTasks] = useState([]);
   const [toggleBottomSidebar, setToggleBottomSidebar] = useState(false);
   const handleToggle = () => {
@@ -15,7 +19,7 @@ const BottomSidebar = ({ selectedTaskListId }) => {
     if (selectedTaskListId) {
       fetchTasks(selectedTaskListId);
     }
-  }, [selectedTaskListId]);
+  }, [selectedTaskListId, taskStatusUpdated]);
 
   const fetchTasks = async (taskListId) => {
     try {
@@ -47,7 +51,7 @@ const BottomSidebar = ({ selectedTaskListId }) => {
           },
         }
       );
-
+      setTaskStatusUpdated((prev) => !prev);
       fetchTasks(selectedTaskListId);
     } catch (error) {
       console.error("Error updating task status:", error);
@@ -60,8 +64,8 @@ const BottomSidebar = ({ selectedTaskListId }) => {
         toggleBottomSidebar ? "bottom-sidebarM" : "bottom-sidebarSM"
       }`}
     >
-      <div>
-        <p>completed task section</p>
+      <div className="bottom-sidebar-head">
+        <h1>Completed Task </h1>
         <button onClick={handleToggle}>up</button>
       </div>
       {tasks.length > 0 ? (
@@ -71,9 +75,6 @@ const BottomSidebar = ({ selectedTaskListId }) => {
               <div>
                 <div>
                   <h1>{task.title}</h1>
-                  <h2>{task.description}</h2>
-                  <p>{task.status}</p>
-                  <p>{task.dueDate}</p>
                 </div>
                 <button
                   onClick={() => {

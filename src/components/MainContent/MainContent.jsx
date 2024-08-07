@@ -9,6 +9,8 @@ const MainContent = ({
   taskListUpdated,
   tasks,
   setTasks,
+  taskStatusUpdated,
+  setTaskStatusUpdated,
 }) => {
   // const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
@@ -18,7 +20,7 @@ const MainContent = ({
     if (selectedTaskListId) {
       fetchTasks(selectedTaskListId);
     }
-  }, [selectedTaskListId, taskListUpdated]);
+  }, [selectedTaskListId, taskListUpdated, taskStatusUpdated]);
 
   const fetchTasks = async (taskListId) => {
     try {
@@ -71,7 +73,7 @@ const MainContent = ({
           },
         }
       );
-
+      setTaskStatusUpdated((prev) => !prev);
       fetchTasks(selectedTaskListId);
     } catch (error) {
       console.error("Error updating task status:", error);
@@ -80,6 +82,7 @@ const MainContent = ({
 
   return (
     <div className="main-content">
+      <h1>Add a task</h1>
       {selectedTaskListId && (
         <form onSubmit={createTask}>
           <input
@@ -111,13 +114,11 @@ const MainContent = ({
         <>
           {tasks.length > 0 ? (
             <ul>
+              <h1>To Do:</h1>
               {tasks.map((task) => (
                 <li key={task.id} onClick={() => setSelectedTaskId(task.id)}>
-                  <div>
-                    <h1>{task.title}</h1>
-                    {/* <h2>{task.description}</h2>
-                      <p>{task.status}</p>
-                      <p>{task.dueDate}</p> */}
+                  <div className="task-container">
+                    <h2>{task.title}</h2>
                     <button
                       onClick={() => {
                         toggleTaskStatus(task.id);
@@ -130,7 +131,10 @@ const MainContent = ({
               ))}
             </ul>
           ) : (
-            <p>Tasklist empty, please start adding tasks.</p>
+            <p>
+              Tasklist empty,
+              <br /> please start adding tasks.
+            </p>
           )}
         </>
       )}

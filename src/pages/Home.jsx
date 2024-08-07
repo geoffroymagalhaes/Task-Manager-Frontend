@@ -9,6 +9,7 @@ const Home = () => {
   const [selectedTaskListId, setSelectedTaskListId] = useState(null);
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const [taskListUpdated, setTaskListUpdated] = useState(false);
+  const [taskStatusUpdated, setTaskStatusUpdated] = useState(false);
   const [tasks, setTasks] = useState([]);
   console.log(selectedTaskId);
 
@@ -24,6 +25,8 @@ const Home = () => {
         setSelectedTaskId={setSelectedTaskId}
         selectedTaskListId={selectedTaskListId}
         taskListUpdated={taskListUpdated}
+        taskStatusUpdated={taskStatusUpdated}
+        setTaskStatusUpdated={setTaskStatusUpdated}
       />
       <RightSidebar
         tasks={tasks}
@@ -32,7 +35,11 @@ const Home = () => {
         selectedTaskListId={selectedTaskListId}
         setTaskListUpdated={setTaskListUpdated}
       />
-      <BottomSidebar selectedTaskListId={selectedTaskListId} />
+      <BottomSidebar
+        selectedTaskListId={selectedTaskListId}
+        setTaskStatusUpdated={setTaskStatusUpdated}
+        taskStatusUpdated={taskStatusUpdated}
+      />
     </>
   );
 };

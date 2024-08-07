@@ -1,4 +1,42 @@
+.main-content {
+  height: 89vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px red;
+  text-align: center;
+}
 form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.main-content h1 {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.main-content input {
+  width: 120px;
+  height: 25px;
+}
+.main-content p {
+  padding: 10px;
+}
+.task-container {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: gray;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-content ul {
+  margin-top: 10px;
+  border: solid 1px red;
+  overflow-y: scroll;
 }
