@@ -11,6 +11,7 @@ const MainContent = ({
   setTasks,
   taskStatusUpdated,
   setTaskStatusUpdated,
+  selectedTaskId,
 }) => {
   // const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
@@ -112,12 +113,16 @@ const MainContent = ({
         <p>Select A Tasklist, please.</p>
       ) : (
         <>
+          <h1>To Do:</h1>
           {tasks.length > 0 ? (
             <ul>
-              <h1>To Do:</h1>
               {tasks.map((task) => (
                 <li key={task.id}>
-                  <div className="task-container">
+                  <div
+                    className={`task-container ${
+                      selectedTaskId === task.id ? "selected" : ""
+                    }`}
+                  >
                     <div
                       className="selected-task"
                       onClick={() => setSelectedTaskId(task.id)}

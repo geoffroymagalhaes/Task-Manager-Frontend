@@ -26,6 +26,7 @@ const Home = () => {
         selectedTaskListId={selectedTaskListId}
         taskListUpdated={taskListUpdated}
         taskStatusUpdated={taskStatusUpdated}
+        selectedTaskId={selectedTaskId}
         setTaskStatusUpdated={setTaskStatusUpdated}
       />
       <RightSidebar

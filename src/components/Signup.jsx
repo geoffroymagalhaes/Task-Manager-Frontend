@@ -36,7 +36,7 @@ const Signup = ({ setIsSignin }) => {
   };
 
   return (
-    <main>
+    <div className="sign-in-up">
       <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -83,7 +83,7 @@ const Signup = ({ setIsSignin }) => {
         <input type="submit" value="S'inscrire" />
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       </form>
-    </main>
+    </div>
   );
 };
 

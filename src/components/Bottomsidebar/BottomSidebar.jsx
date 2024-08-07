@@ -66,7 +66,9 @@ const BottomSidebar = ({
     >
       <div className="bottom-sidebar-head">
         <h1>Completed Task </h1>
-        <button onClick={handleToggle}>up</button>
+        <button onClick={handleToggle}>
+          {toggleBottomSidebar ? "down " : "up"}
+        </button>
       </div>
       {tasks.length > 0 ? (
         <ul>

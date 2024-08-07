@@ -23,6 +23,7 @@
 .bottom-sidebar-head {
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
   gap: 100px;
 }
 .bottom-sidebar ul {
