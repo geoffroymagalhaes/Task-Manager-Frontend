@@ -116,10 +116,17 @@ const MainContent = ({
             <ul>
               <h1>To Do:</h1>
               {tasks.map((task) => (
-                <li key={task.id} onClick={() => setSelectedTaskId(task.id)}>
+                <li key={task.id}>
                   <div className="task-container">
-                    <h2>{task.title}</h2>
+                    <div
+                      className="selected-task"
+                      onClick={() => setSelectedTaskId(task.id)}
+                    >
+                      <h2>{task.title}</h2>
+                    </div>
+
                     <button
+                      className="status-button"
                       onClick={() => {
                         toggleTaskStatus(task.id);
                       }}
